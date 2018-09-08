@@ -8,8 +8,9 @@ const PlaylistBox = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  max-width: 80%;
-  margin: 75px auto;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 16px;
 `
 
 export default class Playlist extends Component {
