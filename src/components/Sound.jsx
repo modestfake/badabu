@@ -32,17 +32,13 @@ const AudioBox = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-image: url(${props => props.cover || 'placeholder.png'});
+  background-image: url(${({ cover }) => cover ? `sounds/${cover}` : 'placeholder.png'});
   background-size: cover;
   border: 2px solid ${props => props.isPlaying ? 'mediumseagreen' : 'darkslateblue'};
   cursor: pointer;
 `
 const Title = styled.span`
   font-size: 14px;
-`
-const Cover = styled.img.attrs({ draggable: false })`
-  width: 100%;
-  height: auto;
 `
 
 export default class Sound extends Component {
@@ -58,7 +54,7 @@ export default class Sound extends Component {
   }
 
   render () {
-    const { filename, title, cover, isPlaying } = this.props
+    const { filename, cover, title, isPlaying } = this.props
 
     return (
       <Wrapper>
@@ -68,7 +64,7 @@ export default class Sound extends Component {
             isPlaying={isPlaying}
             cover={cover}
           >
-            <Title>{title || filename}</Title>
+            {title && <Title>{title}</Title>}
             <audio ref={this.audioRef} src={`sounds/${filename}`} />
           </AudioBox>
         </SquareBox>
