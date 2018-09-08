@@ -4,6 +4,16 @@ import styled from 'styled-components'
 const Wrapper = styled.div`
   width: 50%;
   padding: 16px;
+
+  @media (min-width: 480px) {
+    width: calc(100% / 3);
+  }
+  @media (min-width: 768px) {
+    width: calc(100% / 4);
+  }
+  @media (min-width: 992px) {
+    width: calc(100% / 6);
+  }
 `
 const SquareBox = styled.div`
   position: relative;

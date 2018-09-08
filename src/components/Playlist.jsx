@@ -6,7 +6,6 @@ import data from '../data'
 
 const PlaylistBox = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   max-width: 1600px;
   margin: 0 auto;
