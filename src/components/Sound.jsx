@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import styled from 'styled-components'
+import round from 'lodash.round'
 
 const Wrapper = styled.div`
   width: 50%;
@@ -31,22 +32,68 @@ const AudioBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   background-image: url(${({ cover }) => cover ? `sounds/${cover}` : 'placeholder.png'});
   background-size: cover;
-  border: 2px solid ${props => props.isPlaying ? 'mediumseagreen' : 'darkslateblue'};
+  border: 2px solid ${props => props.isPlaying ? '#3d8681' : '#332c33'};
   cursor: pointer;
 `
 const Title = styled.span`
   font-size: 14px;
 `
+const Progress = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #e94c3d;
 
-export default class Sound extends Component {
+  transform: translateY(${({ isPlaying }) => isPlaying ? 0 : '100%'});
+  transition: transform 100ms ease-in-out;
+  will-change: transform;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(${props => props.position});
+    transform-origin: left;
+    background-color: #eee483;
+  }
+`
+
+export default class Sound extends PureComponent {
   audioRef = React.createRef()
+  timer = null
+
+  state = {
+    position: 0,
+  }
 
   componentDidMount () {
     const { id, setAudioRef } = this.props
     setAudioRef(id, this.audioRef.current)
+
+    this.audioRef.current.addEventListener('ended', () => {
+      clearInterval(this.timer)
+      this.props.stopSound()
+    })
+  }
+
+  componentDidUpdate () {
+    if (this.props.isPlaying) {
+      this.timer = setInterval(() => {
+        const { currentTime, duration } = this.audioRef.current
+
+        this.setState({ position: round(currentTime / duration, 2) })
+      }, 500)
+    } else {
+      clearInterval(this.timer)
+      this.setState({ position: 0 })
+    }
   }
 
   handleClick = () => {
@@ -55,6 +102,7 @@ export default class Sound extends Component {
 
   render () {
     const { filename, cover, title, isPlaying } = this.props
+    const { position } = this.state
 
     return (
       <Wrapper>
@@ -65,6 +113,7 @@ export default class Sound extends Component {
             cover={cover}
           >
             {title && <Title>{title}</Title>}
+            <Progress position={position} isPlaying={isPlaying} />
             <audio ref={this.audioRef} src={`sounds/${filename}`} />
           </AudioBox>
         </SquareBox>

@@ -44,6 +44,10 @@ export default class Playlist extends Component {
     }
   }
 
+  stopSound = () => {
+    this.setState({ current: null })
+  }
+
   render () {
     return (
       <PlaylistBox>
@@ -52,6 +56,7 @@ export default class Playlist extends Component {
             key={sound.id}
             setAudioRef={this.setAudioRef}
             playSound={this.playSound}
+            stopSound={this.stopSound}
             isPlaying={sound.id === this.state.current}
             {...sound}
           />
