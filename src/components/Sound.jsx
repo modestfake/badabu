@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
-import round from 'lodash.round'
 
 const Wrapper = styled.div`
   width: 50%;
@@ -88,7 +87,7 @@ export default class Sound extends PureComponent {
       this.timer = setInterval(() => {
         const { currentTime, duration } = this.audioRef.current
 
-        this.setState({ position: round(currentTime / duration, 2) })
+        this.setState({ position: (currentTime / duration).toFixed(2) })
       }, 500)
     } else {
       clearInterval(this.timer)
