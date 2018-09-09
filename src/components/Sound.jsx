@@ -113,7 +113,11 @@ export default class Sound extends PureComponent {
           >
             {title && <Title>{title}</Title>}
             <Progress position={position} isPlaying={isPlaying} />
-            <audio ref={this.audioRef} src={`sounds/${filename}`} />
+            <audio
+              ref={this.audioRef}
+              src={`sounds/${filename}`}
+              preload='metadata'
+            />
           </AudioBox>
         </SquareBox>
       </Wrapper>
