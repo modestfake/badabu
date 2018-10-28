@@ -39,6 +39,11 @@ const sounds = [
     filename: 'x-files-theme.mp3',
     cover: 'x-files.png'
   },
+  {
+    id: '0009',
+    filename: 'laughing-hyena.mp3',
+    cover: 'laughing-hyena.jpg'
+  }
 ]
 
 export default {
