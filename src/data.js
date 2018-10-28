@@ -43,6 +43,11 @@ const sounds = [
     id: '0009',
     filename: 'laughing-hyena.mp3',
     cover: 'laughing-hyena.jpg'
+  },
+  {
+    id: '0010',
+    filename: 'sad-trombone.mp3',
+    cover: 'sad-trombone.jpg'
   }
 ]
 
