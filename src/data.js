@@ -53,6 +53,21 @@ const sounds = [
     id: '0011',
     filename: 'fort-boyard.mp3',
     cover: 'fort-boyard.jpg'
+  },
+  {
+    id: '0012',
+    filename: 'mission-impossible-theme.mp3',
+    cover: 'mission-impossible-theme.jpg'
+  },
+  {
+    id: '0013',
+    filename: 'lady_gaga-alejandro.mp3',
+    cover: 'lady_gaga-alejandro.jpg'
+  },
+  {
+    id: '0014',
+    filename: 'taylor_swift-shake_it_off.mp3',
+    cover: 'taylor_swift-shake_it_off.jpg'
   }
 ]
 
