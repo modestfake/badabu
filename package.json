@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@atlaskit/css-reset": "^3.0.5",
+    "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-copy-write": "^0.8.0",
     "react-dom": "^16.7.0",
