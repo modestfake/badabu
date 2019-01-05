@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
+import ReactGA from 'react-ga'
 import styled from 'styled-components'
 
 import Sound from './Sound'
 import data from '../data'
+
+const normalizedSound = data.sounds.reduce((acc, sound) => ({
+  ...acc,
+  [sound.id]: sound
+}), {});
 
 const PlaylistBox = styled.div`
   display: flex;
@@ -36,11 +42,18 @@ export default class Playlist extends Component {
     }
 
     if (current === id) {
-      this.setState({ current: null })
+      this.stopSound()
     } else {
       this.setState({ current: id })
 
       audioElements[id].play()
+
+      ReactGA.event({
+        category: 'Sound',
+        action: 'Play sound',
+        label: normalizedSound[id].filename,
+        value: Number(id)
+      })
     }
   }
 
