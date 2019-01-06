@@ -66,7 +66,7 @@ const Progress = styled.div`
 
 export default class Sound extends PureComponent {
   audioRef = React.createRef()
-  timer = null
+  requestId = null
 
   state = {
     position: 0,
@@ -77,21 +77,27 @@ export default class Sound extends PureComponent {
     setAudioRef(id, this.audioRef.current)
 
     this.audioRef.current.addEventListener('ended', () => {
-      clearInterval(this.timer)
+      this.requestId = null
       this.props.stopSound()
     })
   }
 
   componentDidUpdate () {
     if (this.props.isPlaying) {
-      this.timer = setInterval(() => {
-        const { currentTime, duration } = this.audioRef.current
-
-        this.setState({ position: (currentTime / duration).toFixed(2) })
-      }, 500)
+      this.requestId = window.requestAnimationFrame(this.startAnimation)
     } else {
-      clearInterval(this.timer)
+      this.requestId = null
       this.setState({ position: 0 })
+    }
+  }
+
+  startAnimation = () => {
+    const { currentTime, duration } = this.audioRef.current
+
+    this.setState({ position: (currentTime / duration).toFixed(2) })
+
+    if (this.requestId) {
+      this.requestId = window.requestAnimationFrame(this.startAnimation)
     }
   }
 

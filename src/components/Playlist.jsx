@@ -8,7 +8,7 @@ import data from '../data'
 const normalizedSound = data.sounds.reduce((acc, sound) => ({
   ...acc,
   [sound.id]: sound
-}), {});
+}), {})
 
 const PlaylistBox = styled.div`
   display: flex;
