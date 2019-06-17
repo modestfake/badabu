@@ -61,11 +61,6 @@ const sounds = [
   },
   {
     id: '0013',
-    filename: 'lady_gaga-alejandro.mp3',
-    cover: 'lady_gaga-alejandro.jpg'
-  },
-  {
-    id: '0014',
     filename: 'taylor_swift-shake_it_off.mp3',
     cover: 'taylor_swift-shake_it_off.jpg'
   }
