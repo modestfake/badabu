@@ -63,6 +63,21 @@ const sounds = [
     id: '0013',
     filename: 'taylor_swift-shake_it_off.mp3',
     cover: 'taylor_swift-shake_it_off.jpg'
+  },
+  {
+    id: '0014',
+    filename: 'ennio_morricone-the_good_the_bad_and_the_ugly.mp3',
+    cover: 'ennio_morricone-the_good_the_bad_and_the_ugly.jpg'
+  },
+  {
+    id: '0015',
+    filename: 'cricket-sound.mp3',
+    cover: 'cricket-sound.png'
+  },
+  {
+    id: '0016',
+    filename: 'dial-up_modem.mp3',
+    cover: 'dial-up_modem.jpg'
   }
 ]
 

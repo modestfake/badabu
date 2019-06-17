@@ -5,8 +5,11 @@ const Wrapper = styled.div`
   width: 50%;
   padding: 16px;
 
-  @media (min-width: 480px) {
+  @media (min-width: 320px) {
     width: calc(100% / 3);
+  }
+  @media (max-width: 480px) {
+    padding: 8px;
   }
   @media (min-width: 768px) {
     width: calc(100% / 4);
@@ -66,7 +69,7 @@ const Progress = styled.div`
 
 export default class Sound extends PureComponent {
   audioRef = React.createRef()
-  requestId = null
+  requestId = React.createRef()
 
   state = {
     position: 0,
@@ -77,16 +80,16 @@ export default class Sound extends PureComponent {
     setAudioRef(id, this.audioRef.current)
 
     this.audioRef.current.addEventListener('ended', () => {
-      this.requestId = null
+      this.requestId.current = null
       this.props.stopSound()
     })
   }
 
   componentDidUpdate () {
     if (this.props.isPlaying) {
-      this.requestId = window.requestAnimationFrame(this.startAnimation)
+      this.requestId.current = window.requestAnimationFrame(this.startAnimation)
     } else {
-      this.requestId = null
+      this.requestId.current = null
       this.setState({ position: 0 })
     }
   }
@@ -96,8 +99,8 @@ export default class Sound extends PureComponent {
 
     this.setState({ position: (currentTime / duration).toFixed(2) })
 
-    if (this.requestId) {
-      this.requestId = window.requestAnimationFrame(this.startAnimation)
+    if (this.requestId.current) {
+      this.requestId.current = window.requestAnimationFrame(this.startAnimation)
     }
   }
 
