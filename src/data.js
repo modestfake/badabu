@@ -78,6 +78,11 @@ const sounds = [
     id: '0016',
     filename: 'dial-up_modem.mp3',
     cover: 'dial-up_modem.jpg'
+  },
+  {
+    id: '0017',
+    filename: 'pornhub-intro.mp3',
+    cover: 'pornhub-intro.png'
   }
 ]
 
