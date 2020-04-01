@@ -4,14 +4,20 @@ import Playlist from './components/Playlist'
 import './App.css'
 import logo from './logo.svg'
 
-if (window.location.hostname === 'badabu.netlify.com') {
+const isNetlify = /badabu.netlify.(com|app)/.test(window.location.hostname)
+
+if (isNetlify) {
   ReactGA.initialize('UA-38195480-2')
 }
-console.log(window.location.hostname, window.location.hostname === 'badabu.netlify.com')
+
+console.log('You haven\'t seen anything 🕵️', {
+  hostname: window.location.hostname,
+  isNetlify
+})
 
 ReactGA.pageview('/')
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="App">
@@ -24,5 +30,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
