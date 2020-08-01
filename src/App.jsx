@@ -10,9 +10,9 @@ if (isNetlify) {
   ReactGA.initialize('UA-38195480-2')
 }
 
-console.log('You haven\'t seen anything 🕵️', {
+console.log("You haven't seen anything 🕵️", {
   hostname: window.location.hostname,
-  isNetlify
+  isNetlify,
 })
 
 ReactGA.pageview('/')
@@ -20,13 +20,23 @@ ReactGA.pageview('/')
 export default class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} alt='Badabu logo' />
-          <h1 className="App-title">Badabu</h1>
+      <div className='App'>
+        <header className='App-header'>
+          <img alt='Badabu logo' src={logo} />
+          <h1 className='App-title'>Badabu</h1>
         </header>
         <Playlist />
+        <footer>
+          <a
+            className='request-sound'
+            href='https://github.com/modestfake/badabu/issues/new'
+            rel='noopener noreferrer'
+            target='_blank'
+          >
+            Request a sound
+          </a>
+        </footer>
       </div>
-    );
+    )
   }
 }

@@ -26,7 +26,22 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+footer {
+  padding: 20px;
+}
+
+.request-sound {
+  font-size: 20px;
+  position: relative;
+}
+
+.request-sound::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 3px;
+  left: -25px;
+  background-image: url(https://github.githubassets.com/favicons/favicon.png);
+  background-size: contain;
 }
