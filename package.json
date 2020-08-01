@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@atlaskit/css-reset": "^5.0.10",
+    "@atlaskit/css-reset": "^6.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-ga": "^2.7.0",
+    "react-ga": "^3.1.2",
     "react-scripts": "^3.4.1",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -17,9 +17,13 @@
     "lint": "eslint ./src --ext .js,.jsx"
   },
   "browserslist": [
-    ">0.2%",
+    ">2%",
     "not dead",
-    "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.0.5"
+  }
 }
