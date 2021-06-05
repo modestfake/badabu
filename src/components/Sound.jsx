@@ -36,9 +36,9 @@ const AudioBox = styled.div`
   align-items: center;
   overflow: hidden;
 
-  background-image: url(${({ cover }) => cover ? `sounds/${cover}` : 'placeholder.png'});
+  background-image: url(${({ cover }) => (cover ? `sounds/${cover}` : 'placeholder.png')});
   background-size: cover;
-  border: 2px solid ${props => props.isPlaying ? '#3d8681' : '#332c33'};
+  border: 2px solid ${(props) => (props.isPlaying ? '#3d8681' : '#332c33')};
   cursor: pointer;
 `
 const Title = styled.span`
@@ -51,17 +51,17 @@ const Progress = styled.div`
   height: 4px;
   background-color: #e94c3d;
 
-  transform: translateY(${({ isPlaying }) => isPlaying ? 0 : '100%'});
+  transform: translateY(${({ isPlaying }) => (isPlaying ? 0 : '100%')});
   transition: transform 100ms ease-in-out;
   will-change: transform;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     width: 100%;
     height: 100%;
-    transform: scaleX(${props => props.position});
+    transform: scaleX(${(props) => props.position});
     transform-origin: left;
     background-color: #eee483;
   }
@@ -75,7 +75,7 @@ export default class Sound extends PureComponent {
     position: 0,
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const { id, setAudioRef } = this.props
     setAudioRef(id, this.audioRef.current)
 
@@ -85,7 +85,7 @@ export default class Sound extends PureComponent {
     })
   }
 
-  componentDidUpdate () {
+  componentDidUpdate() {
     if (this.props.isPlaying) {
       this.requestId.current = window.requestAnimationFrame(this.startAnimation)
     } else {
@@ -108,25 +108,17 @@ export default class Sound extends PureComponent {
     this.props.playSound(this.props.id)
   }
 
-  render () {
+  render() {
     const { filename, cover, title, isPlaying } = this.props
     const { position } = this.state
 
     return (
       <Wrapper>
         <SquareBox>
-          <AudioBox
-            onClick={this.handleClick}
-            isPlaying={isPlaying}
-            cover={cover}
-          >
+          <AudioBox cover={cover} isPlaying={isPlaying} onClick={this.handleClick}>
             {title && <Title>{title}</Title>}
-            <Progress position={position} isPlaying={isPlaying} />
-            <audio
-              ref={this.audioRef}
-              src={`sounds/${filename}`}
-              preload='metadata'
-            />
+            <Progress isPlaying={isPlaying} position={position} />
+            <audio ref={this.audioRef} preload='metadata' src={`sounds/${filename}`} />
           </AudioBox>
         </SquareBox>
       </Wrapper>

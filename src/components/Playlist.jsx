@@ -5,10 +5,13 @@ import styled from 'styled-components'
 import Sound from './Sound'
 import data from '../data'
 
-const normalizedSound = data.sounds.reduce((acc, sound) => ({
-  ...acc,
-  [sound.id]: sound
-}), {})
+const normalizedSound = data.sounds.reduce(
+  (acc, sound) => ({
+    ...acc,
+    [sound.id]: sound,
+  }),
+  {},
+)
 
 const PlaylistBox = styled.div`
   display: flex;
@@ -25,7 +28,7 @@ export default class Playlist extends Component {
   }
 
   setAudioRef = (id, audioRef) => {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       audioElements: {
         ...prevState.audioElements,
         [id]: audioRef,
@@ -52,7 +55,7 @@ export default class Playlist extends Component {
         category: 'Sound',
         action: 'Play sound',
         label: normalizedSound[id].filename,
-        value: Number(id)
+        value: Number(id),
       })
     }
   }
@@ -61,16 +64,16 @@ export default class Playlist extends Component {
     this.setState({ current: null })
   }
 
-  render () {
+  render() {
     return (
       <PlaylistBox>
-        {data.sounds.map(sound => (
+        {data.sounds.map((sound) => (
           <Sound
             key={sound.id}
-            setAudioRef={this.setAudioRef}
-            playSound={this.playSound}
-            stopSound={this.stopSound}
             isPlaying={sound.id === this.state.current}
+            playSound={this.playSound}
+            setAudioRef={this.setAudioRef}
+            stopSound={this.stopSound}
             {...sound}
           />
         ))}
