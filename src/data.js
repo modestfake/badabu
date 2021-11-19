@@ -79,6 +79,21 @@ const sounds = [
     filename: 'dial-up_modem.mp3',
     cover: 'dial-up_modem.jpg',
   },
+  {
+    id: '0017',
+    filename: 'toxic-flute.mp3',
+    cover: 'toxic-flute.jpg',
+  },
+  {
+    id: '0018',
+    filename: 'toxic-lips.mp3',
+    cover: 'toxic-lips.jpg',
+  },
+  {
+    id: '0019',
+    filename: 'bandera.mp3',
+    cover: 'bandera.jpg',
+  },
   // Dina don't want this
   // {
   //   id: '0017',

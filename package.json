@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@atlaskit/css-reset": "^6.0.5",
+    "@atlaskit/css-reset": "^6.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-ga": "^3.3.0",
-    "styled-components": "^5.3.0"
+    "styled-components": "^5.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,8 +21,8 @@
   ],
   "devDependencies": {
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.3.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
     "prop-types": "^15.7.2",
     "react-scripts": "^4.0.3"
   }
