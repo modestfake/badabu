@@ -94,6 +94,11 @@ const sounds = [
     filename: 'bandera.mp3',
     cover: 'bandera.jpg',
   },
+  {
+    id: '0020',
+    filename: 'surprise-surprise.mp3',
+    cover: 'surprise-surprise.jpg',
+  },
   // Dina don't want this
   // {
   //   id: '0017',
