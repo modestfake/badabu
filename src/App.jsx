@@ -8,14 +8,13 @@ const isNetlify = /badabu.netlify.(com|app)/.test(window.location.hostname)
 
 if (isNetlify) {
   ReactGA.initialize('UA-38195480-2')
+  ReactGA.pageview('/')
 }
 
 console.log("You haven't seen anything 🕵️", {
   hostname: window.location.hostname,
   isNetlify,
 })
-
-ReactGA.pageview('/')
 
 export default class App extends Component {
   render() {

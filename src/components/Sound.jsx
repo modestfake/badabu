@@ -36,9 +36,9 @@ const AudioBox = styled.div`
   align-items: center;
   overflow: hidden;
 
-  background-image: url(${({ cover }) => (cover ? `sounds/${cover}` : 'placeholder.png')});
+  background-image: url(${({ $cover }) => ($cover ? `sounds/${$cover}` : 'placeholder.png')});
   background-size: cover;
-  border: 2px solid ${(props) => (props.isPlaying ? '#3d8681' : '#332c33')};
+  border: 2px solid ${(props) => (props.$isPlaying ? '#3d8681' : '#332c33')};
   cursor: pointer;
 `
 const Title = styled.span`
@@ -51,7 +51,7 @@ const Progress = styled.div`
   height: 4px;
   background-color: #e94c3d;
 
-  transform: translateY(${({ isPlaying }) => (isPlaying ? 0 : '100%')});
+  transform: translateY(${({ $isPlaying }) => ($isPlaying ? 0 : '100%')});
   transition: transform 100ms ease-in-out;
   will-change: transform;
 
@@ -61,7 +61,7 @@ const Progress = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    transform: scaleX(${(props) => props.position});
+    transform: scaleX(${(props) => props.$position});
     transform-origin: left;
     background-color: #eee483;
   }
@@ -115,9 +115,9 @@ export default class Sound extends PureComponent {
     return (
       <Wrapper>
         <SquareBox>
-          <AudioBox cover={cover} isPlaying={isPlaying} onClick={this.handleClick}>
+          <AudioBox $cover={cover} $isPlaying={isPlaying} onClick={this.handleClick}>
             {title && <Title>{title}</Title>}
-            <Progress isPlaying={isPlaying} position={position} />
+            <Progress $isPlaying={isPlaying} $position={position} />
             <audio ref={this.audioRef} preload='metadata' src={`sounds/${filename}`} />
           </AudioBox>
         </SquareBox>

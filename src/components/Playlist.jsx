@@ -3,9 +3,9 @@ import ReactGA from 'react-ga'
 import styled from 'styled-components'
 
 import Sound from './Sound'
-import data from '../data'
+import { sounds } from '../data'
 
-const normalizedSound = data.sounds.reduce(
+const normalizedSound = sounds.reduce(
   (acc, sound) => ({
     ...acc,
     [sound.id]: sound,
@@ -67,7 +67,7 @@ export default class Playlist extends Component {
   render() {
     return (
       <PlaylistBox>
-        {data.sounds.map((sound) => (
+        {sounds.map((sound) => (
           <Sound
             key={sound.id}
             isPlaying={sound.id === this.state.current}
