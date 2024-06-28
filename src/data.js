@@ -47,10 +47,10 @@ export const sounds = [
     filename: 'mission-impossible-theme.mp3',
     cover: 'mission-impossible-theme.jpg',
   },
-  {
-    filename: 'taylor_swift-shake_it_off.mp3',
-    cover: 'taylor_swift-shake_it_off.jpg',
-  },
+  // {
+  //   filename: 'taylor_swift-shake_it_off.mp3',
+  //   cover: 'taylor_swift-shake_it_off.jpg',
+  // },
   {
     filename: 'ennio_morricone-the_good_the_bad_and_the_ugly.mp3',
     cover: 'ennio_morricone-the_good_the_bad_and_the_ugly.jpg',
@@ -63,14 +63,14 @@ export const sounds = [
     filename: 'dial-up_modem.mp3',
     cover: 'dial-up_modem.jpg',
   },
-  {
-    filename: 'toxic-flute.mp3',
-    cover: 'toxic-flute.jpg',
-  },
-  {
-    filename: 'toxic-lips.mp3',
-    cover: 'toxic-lips.jpg',
-  },
+  // {
+  //   filename: 'toxic-flute.mp3',
+  //   cover: 'toxic-flute.jpg',
+  // },
+  // {
+  //   filename: 'toxic-lips.mp3',
+  //   cover: 'toxic-lips.jpg',
+  // },
   {
     filename: 'bandera.mp3',
     cover: 'bandera.jpg',
